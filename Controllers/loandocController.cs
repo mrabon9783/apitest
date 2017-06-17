@@ -24,18 +24,82 @@ namespace restapi.Controllers
         // GET: api/loandoc/mrabon/deliverydashboard
 
         [HttpGet]
-        public string Get(string user, string queryname )
+        public string Get(string user, string queryname)
         {
             string r = "";
+            string sqlstr = "";
             DeliveryDashboardPersistence t = new DeliveryDashboardPersistence();
-            if(queryname=="deliverydashboard"| queryname == "deliverydashboard"|queryname == "deliverydashboard")
+            if(queryname=="deliverydashboard"| queryname == "boardingdetails"|queryname == "missingdocuments")
             {
-                string sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "'";
+                if (queryname == "deliverydashboard")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "'";
+                }
+                if (queryname == "boardingdetails")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "'";
+                }
+                if (queryname == "missingdocuments")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "'";
+                }
                 r = t.fetchdb(sqlstr);
             }
             
             return r;
         }
+
+        public string Get(string user, string queryname, string opt)
+        {
+            string r = "";
+            string sqlstr = "";
+            DeliveryDashboardPersistence t = new DeliveryDashboardPersistence();
+            if (queryname == "deliverydashboard" | queryname == "boardingdetails" | queryname == "missingdocuments")
+            {
+                if (queryname == "deliverydashboard")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "'";
+                }
+                if (queryname == "boardingdetails")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "' and boarddate='" + opt + "'";
+                }
+                if (queryname == "missingdocuments")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "' and boarddate='" + opt + "'";
+                }
+                r = t.fetchdb(sqlstr);
+            }
+
+            return r;
+        }
+
+        public string Get(string user, string queryname, string opt, string opt2)
+        {
+            string r = "";
+            string sqlstr = "";
+            DeliveryDashboardPersistence t = new DeliveryDashboardPersistence();
+            if (queryname == "deliverydashboard" | queryname == "boardingdetails" | queryname == "missingdocuments")
+            {
+                if (queryname == "deliverydashboard")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "'";
+                }
+                if (queryname == "boardingdetails")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "' and loannumber='" + opt2 + "'";
+                }
+                if (queryname == "missingdocuments")
+                {
+                    sqlstr = "select * from dbo." + queryname + " where permitteduserid ='" + user + "' and loannumber='" + opt2 + "'";
+                }
+                r = t.fetchdb(sqlstr);
+            }
+
+            return r;
+        }
+
+
 
         // POST: api/name
         //public HttpResponseMessage Post([FromBody]DeliveryDashboard value)
@@ -49,7 +113,7 @@ namespace restapi.Controllers
         //    return response;
         //}
 
- 
+
 
         // PUT: api/name/5
         public void Put(int id, [FromBody]string value)

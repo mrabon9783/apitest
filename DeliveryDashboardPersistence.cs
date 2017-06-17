@@ -16,7 +16,7 @@ namespace restapi
         {
 
             string myconnstr;
-            myconnstr = "Server=tcp:botwsmdr.database.windows.net,1433;Initial Catalog=wsbot;Persist Security Info=False;User ID=USERID;Password=PASSWORD;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            myconnstr = "Server=tcp:botwsmdr.database.windows.net,1433;Initial Catalog=wsbot;Persist Security Info=False;User ID=appuser;Password=@ppR#ADER;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection cnn;
             cnn = new SqlConnection(myconnstr);
 
@@ -32,7 +32,7 @@ namespace restapi
             ddb.TotalLoans = dbtosave.TotalLoans;
             string sqlstring = "Insert into Table_1 (name) values('" + dbtosave.TotalLoans.ToString() + "')";
             string myconnstr;
-            myconnstr = "Server=tcp:botwsmdr.database.windows.net,1433;Initial Catalog=wsbot;Persist Security Info=False;User ID=mdrabon;Password=T!nk3r123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            myconnstr = "Server=tcp:botwsmdr.database.windows.net,1433;Initial Catalog=wsbot;Persist Security Info=False;User ID=appuser;Password=@ppR#ADER;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection cnn;
             cnn = new SqlConnection(myconnstr);
             cnn.Open();
